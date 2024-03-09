@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        /* Simple rotating animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            position: fixed; /* Position the loader */
+            left: 50%;
+            top: 50%;
+            margin-left: -60px; /* Half the width of the loader */
+            margin-top: -60px; /* Half the height of the loader */
+            display: none; /* Hide by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader"></div> <!-- Loader element -->
+
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Football Video Analyser</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" role="button">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Upload Video for Analysis</h2>
+                    <h3>Start by uploading your football clip</h3>
+                </hgroup>
+                <form action="/" method="post" enctype="multipart/form-data" class="grid" id="uploadForm">
+                    <input type="file" name="file" required>
+                    <button type="submit">Upload</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="container">
+        <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a></small>
+    </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            // Show the loader
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
