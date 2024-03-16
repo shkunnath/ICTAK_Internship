@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Processed Videos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Video Results</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" role="button">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <h2>Goal Moments</h2>
+                {% for video in videos_goal %}
+                    <video width="320" height="240" controls>
+                        <source src="{{ url_for('uploaded_file', filename=video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endfor %}
+            </section>
+        </div>
+        <div class="grid">
+            <section>
+                <h2>Emotion Moments</h2>
+                {% for video in videos_emotion %}
+                    <video width="320" height="240" controls>
+                        <source src="{{ url_for('uploaded_file', filename=video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endfor %}
+            </section>
+        </div>
+    </main>
+    <footer class="container">
+        <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a></small>
+    </footer>
+</body>
+</html>
